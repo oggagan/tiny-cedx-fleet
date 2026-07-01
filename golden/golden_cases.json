@@ -1,0 +1,19 @@
+{
+  "_comment": "Golden expectations for the dev seed. Each case names the record, the agent whose behaviour it exercises, and the expected outcome. The eval harness scores per-agent rule accuracy against these, then an LLM-judge rates output quality. Held-out uses the same TYPES with different values, so these assert behaviour, not memorised ids.",
+  "cases": [
+    {"id": "REC-001", "agent": "worker",       "expected_status": "delivered", "expected_reason_code": null},
+    {"id": "REC-006", "agent": "worker",       "expected_status": "delivered", "expected_reason_code": null},
+    {"id": "REC-007", "agent": "worker",       "expected_status": "delivered", "expected_reason_code": null},
+    {"id": "REC-010", "agent": "worker",       "expected_status": "delivered", "expected_reason_code": null},
+    {"id": "REC-011", "agent": "orchestrator", "expected_status": "exception", "expected_reason_code": "STALE"},
+    {"id": "REC-012", "agent": "orchestrator", "expected_status": "exception", "expected_reason_code": "MISSING_INPUT"},
+    {"id": "REC-013", "agent": "orchestrator", "expected_status": "exception", "expected_reason_code": "OUTLIER"},
+    {"id": "REC-014", "agent": "orchestrator", "expected_status": "exception", "expected_reason_code": "INJECTION_BLOCKED"},
+    {"id": "REC-015", "agent": "verifier",     "expected_status": "exception", "expected_reason_code": "LOW_CONFIDENCE"},
+    {"id": "REC-016", "agent": "orchestrator", "expected_status": "delivered", "expected_reason_code": "SCHEMA_DRIFT"},
+    {"id": "REC-017", "agent": "worker",       "expected_status": "delivered", "expected_reason_code": null},
+    {"id": "REC-017", "agent": "orchestrator", "expected_status": "superseded", "expected_reason_code": "SUPERSEDED_VERSION"},
+    {"id": "REC-021", "agent": "verifier",     "expected_status": "exception", "expected_reason_code": "LOW_CONFIDENCE"},
+    {"id": "REC-022", "agent": "orchestrator", "expected_status": "exception", "expected_reason_code": "INJECTION_BLOCKED"}
+  ]
+}
