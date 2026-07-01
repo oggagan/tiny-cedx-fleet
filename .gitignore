@@ -1,0 +1,22 @@
+# secrets and local env
+.env
+*.local
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# runtime artifacts (out/ is written by the pipeline at run time)
+out/*
+!out/.gitkeep
+
+# local sqlite state (rebuilt every run)
+*.db
+*.sqlite
+*.sqlite3
+
+# os
+.DS_Store

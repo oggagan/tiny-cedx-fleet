@@ -1,0 +1,5 @@
+# The fleet itself uses only the Python standard library (urllib for the OpenAI-
+# compatible LLM call, sqlite3 for the append-only store, email for .eml intake).
+# These two are the only third-party deps:
+jsonschema>=4.0   # audit-bundle schema validation (also used by verify_audit.py)
+pypdf>=4.0        # PDF intake
