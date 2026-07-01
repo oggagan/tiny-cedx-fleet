@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CEDX branded work-order (delivered_fields) v1",
+  "schema_version": "1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "client_owner",
+    "engagement_category",
+    "primary_amount_usd",
+    "deadline",
+    "currency",
+    "summary"
+  ],
+  "properties": {
+    "record_id": { "type": "string", "minLength": 1 },
+    "client_owner": { "type": "string", "minLength": 1 },
+    "engagement_category": { "type": "string", "minLength": 1 },
+    "primary_amount_usd": { "type": "number" },
+    "deadline": { "type": "string", "minLength": 1 },
+    "currency": { "type": "string", "enum": ["USD"] },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 400 }
+  }
+}

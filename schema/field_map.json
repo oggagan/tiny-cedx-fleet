@@ -1,0 +1,12 @@
+{
+  "_comment": "Declarative source->canonical field mapping. Any source key (matched case-insensitively) that resolves to a canonical field via an alias OTHER than the canonical name itself is flagged as SCHEMA_DRIFT (a mid-batch rename) and logged, but still mapped so the record can proceed. New alias names in the held-out set are handled by this table, not by code.",
+  "canonical": {
+    "owner": ["owner", "requestor", "requested_by"],
+    "deadline": ["deadline", "due", "due_date", "duedate"],
+    "category": ["category", "type", "work_type"],
+    "notes": ["notes", "note", "comment", "comments", "remarks"],
+    "amount": ["amount", "value", "figure", "total", "sum"],
+    "version": ["version", "rev", "revision"]
+  },
+  "primary_numeric_field": "amount"
+}
