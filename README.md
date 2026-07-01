@@ -8,6 +8,7 @@ with one command and is graded on data it has never seen.
 - **CASE_ID:** CEDX-BEA205  ·  **Amendment:** compliance @ 47,000
 - One command: `docker compose up` (offline replay, no key needed)
 - Grader gate: `make verify` prints `PASS`
+- Live dashboard: https://oggagan.github.io/tiny-cedx-fleet/
 
 ![Fleet run observability dashboard](docs/preview.png)
 
