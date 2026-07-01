@@ -9,6 +9,8 @@ with one command and is graded on data it has never seen.
 - One command: `docker compose up` (offline replay, no key needed)
 - Grader gate: `make verify` prints `PASS`
 
+![Fleet run observability dashboard](docs/preview.png)
+
 ---
 
 ## 1. Industry & Scope
@@ -121,6 +123,6 @@ live. Nothing is stubbed on the non-LLM path.
 - Verifier currently makes one LLM opinion per delivered record; next I would sample it and
   keep the deterministic grounding as the fast path to cut the latency tail.
 - Operator surface is a CLI; a thin review dashboard is the obvious next increment (a
-  read-only fleet dashboard is included under `webui/`).
+  read-only fleet dashboard is included under `docs/` (published to GitHub Pages)).
 - Swap SQLite for Postgres + a queue to move from batch to streaming at 10k/day; the
   append-only interface and per-record transactions are already the seam for that.

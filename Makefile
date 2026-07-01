@@ -44,6 +44,10 @@ probe-append-only:
 probe-idempotency:
 	$(PY) -m cedx.cli probe idempotency
 
+# Bundle the latest audit into the static observability dashboard (webui/).
+dashboard:
+	$(PY) -m cedx.cli dashboard
+
 # BONUS. Resumes from the last committed record after a simulated SIGKILL.
 probe-crash:
 	$(PY) -m cedx.cli probe crash

@@ -52,6 +52,30 @@ def cmd_probe(cfg, args) -> int:
     return fn(cfg)
 
 
+def cmd_dashboard(cfg, args) -> int:
+    """Bundle the latest audit into webui/data.js so the static dashboard renders
+    with no backend (works over file:// and any static host)."""
+    from pathlib import Path
+
+    audit_p = cfg.out_dir / "audit.json"
+    if not audit_p.exists():
+        Pipeline(cfg).run(quiet=True)
+    audit = json.loads(audit_p.read_text(encoding="utf-8"))
+    exq_p = cfg.out_dir / "exception_queue.json"
+    exq = json.loads(exq_p.read_text(encoding="utf-8")) if exq_p.exists() else {}
+    data_js = (
+        "window.AUDIT=" + json.dumps(audit) + ";\n"
+        "window.EXCEPTIONS=" + json.dumps(exq) + ";\n"
+    )
+    # docs/ is the published dashboard (GitHub Pages serves it as the live URL)
+    docs = Path("docs")
+    docs.mkdir(exist_ok=True)
+    (docs / "data.js").write_text(data_js, encoding="utf-8")
+    (docs / ".nojekyll").write_text("", encoding="utf-8")
+    print(f"wrote docs/data.js ({len(audit['records'])} records). Open docs/index.html.")
+    return 0
+
+
 def main(argv=None) -> int:
     argv = argv if argv is not None else sys.argv[1:]
     cfg = load_config()
@@ -64,6 +88,7 @@ def main(argv=None) -> int:
     sub.add_parser("eval")
     p_probe = sub.add_parser("probe"); p_probe.add_argument("name")
     sub.add_parser("amendment")
+    sub.add_parser("dashboard")
 
     args = ap.parse_args(argv)
     if args.cmd == "demo":
@@ -79,6 +104,8 @@ def main(argv=None) -> int:
         return 0
     if args.cmd == "probe":
         return cmd_probe(cfg, args)
+    if args.cmd == "dashboard":
+        return cmd_dashboard(cfg, args)
     return 2
 
 
