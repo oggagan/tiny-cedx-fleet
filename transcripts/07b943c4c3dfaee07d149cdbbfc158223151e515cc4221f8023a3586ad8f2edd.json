@@ -1,0 +1,37 @@
+{
+  "agent": "worker",
+  "cost_usd": 0.000185,
+  "delivered_fields": {
+    "client_owner": "p.larsen",
+    "currency": "USD",
+    "deadline": "2026-07-23",
+    "engagement_category": "RENEWAL",
+    "primary_amount_usd": 4750.0,
+    "record_id": "REC-016",
+    "summary": "Renewal via partner feed."
+  },
+  "delivered_fields_hash": "sha256:500d17b2130678f8b5056d753222181b864c9a9626cb9a2ed3a9a9ec4b02d7a7",
+  "latency_ms": 1197.39,
+  "model": "deepseek-chat",
+  "prompt_version": "worker/v1",
+  "record_id": "REC-016",
+  "request": {
+    "system": "You are the CEDX Assembly agent for a financial-services work-order pipeline. You convert one validated work-request into a branded work-order as STRICT JSON. Ground every factual field EXACTLY in the provided source record - copy record_id, client_owner (the owner), primary_amount_usd (the amount), and deadline verbatim; never invent or alter a value. engagement_category is the category in UPPER_SNAKE. currency is always \"USD\". summary is ONE professional sentence describing the work. If the record is ambiguous, self-contradictory, or missing the facts you need to be correct, DO NOT guess: set abstain=true and confidence below 0.5. Reply with ONLY this JSON object and no prose:\n{\"record_id\":str,\"client_owner\":str,\"engagement_category\":str,\"primary_amount_usd\":number,\"deadline\":str,\"currency\":\"USD\",\"summary\":str,\"confidence\":number,\"abstain\":boolean}",
+    "user": "Source work-request record:\n{\"record_id\": \"REC-016\", \"owner\": \"p.larsen\", \"amount\": 4750.0, \"deadline\": \"2026-07-23\", \"category\": \"RENEWAL\", \"notes\": \"Renewal via partner feed.\"}"
+  },
+  "response": {
+    "abstain": false,
+    "client_owner": "p.larsen",
+    "confidence": 1.0,
+    "currency": "USD",
+    "deadline": "2026-07-23",
+    "engagement_category": "RENEWAL",
+    "primary_amount_usd": 4750.0,
+    "record_id": "REC-016",
+    "summary": "Renewal via partner feed."
+  },
+  "response_hash": "sha256:07b943c4c3dfaee07d149cdbbfc158223151e515cc4221f8023a3586ad8f2edd",
+  "retries": 0,
+  "tokens_in": 290,
+  "tokens_out": 97
+}

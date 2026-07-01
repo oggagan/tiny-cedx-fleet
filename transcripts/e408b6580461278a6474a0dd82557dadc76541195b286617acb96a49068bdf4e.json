@@ -1,0 +1,20 @@
+{
+  "agent": "verifier",
+  "cost_usd": 7.283e-05,
+  "latency_ms": 960.88,
+  "model": "deepseek-chat",
+  "prompt_version": "verifier/v1",
+  "record_id": "REC-019",
+  "request": {
+    "system": "You are the CEDX Verifier agent. Independently check whether a drafted work-order is fully supported by its SOURCE record. A field is unsupported if it asserts a value the source does not contain or contradicts. Ignore stylistic wording in the summary. Reply with ONLY strict JSON: {\"supported\":boolean,\"issue\":string}.",
+    "user": "SOURCE:\n{\"record_id\": \"REC-019\", \"owner\": \"s.haque\", \"amount\": 4850.0, \"deadline\": \"2026-07-27\", \"category\": \"ONBOARDING\", \"notes\": \"Onboarding pack complete.\"}\n\nDRAFT WORK-ORDER:\n{\"record_id\": \"REC-019\", \"client_owner\": \"s.haque\", \"engagement_category\": \"ONBOARDING\", \"primary_amount_usd\": 4850.0, \"deadline\": \"2026-07-27\", \"currency\": \"USD\", \"summary\": \"Complete onboarding pack for client.\"}"
+  },
+  "response": {
+    "issue": "",
+    "supported": true
+  },
+  "response_hash": "sha256:b2a0664815f6f82f97b4afba7cf90d25690c1cae04a4005a61434292c1c2d821",
+  "retries": 0,
+  "tokens_in": 229,
+  "tokens_out": 10
+}

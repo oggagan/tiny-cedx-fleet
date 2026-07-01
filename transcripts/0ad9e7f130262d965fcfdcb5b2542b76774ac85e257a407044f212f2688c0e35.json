@@ -1,0 +1,37 @@
+{
+  "agent": "worker",
+  "cost_usd": 0.00020345,
+  "delivered_fields": {
+    "client_owner": "j.cohen",
+    "currency": "USD",
+    "deadline": "2026-07-25",
+    "engagement_category": "INTAKE",
+    "primary_amount_usd": 5100.0,
+    "record_id": "REC-010",
+    "summary": "Intake work request for client j.cohen with amount 5100.0 USD due by 2026-07-25."
+  },
+  "delivered_fields_hash": "sha256:d784e0d5606dfe06a5b43beacc931d788f5da6e8341994fdbef4ade981a44136",
+  "latency_ms": 1751.15,
+  "model": "deepseek-chat",
+  "prompt_version": "worker/v1",
+  "record_id": "REC-010",
+  "request": {
+    "system": "You are the CEDX Assembly agent for a financial-services work-order pipeline. You convert one validated work-request into a branded work-order as STRICT JSON. Ground every factual field EXACTLY in the provided source record - copy record_id, client_owner (the owner), primary_amount_usd (the amount), and deadline verbatim; never invent or alter a value. engagement_category is the category in UPPER_SNAKE. currency is always \"USD\". summary is ONE professional sentence describing the work. If the record is ambiguous, self-contradictory, or missing the facts you need to be correct, DO NOT guess: set abstain=true and confidence below 0.5. Reply with ONLY this JSON object and no prose:\n{\"record_id\":str,\"client_owner\":str,\"engagement_category\":str,\"primary_amount_usd\":number,\"deadline\":str,\"currency\":\"USD\",\"summary\":str,\"confidence\":number,\"abstain\":boolean}",
+    "user": "Source work-request record:\n{\"record_id\": \"REC-010\", \"owner\": \"j.cohen\", \"amount\": 5100.0, \"deadline\": \"2026-07-25\", \"category\": \"INTAKE\", \"notes\": \"Intake complete.\"}"
+  },
+  "response": {
+    "abstain": false,
+    "client_owner": "j.cohen",
+    "confidence": 1.0,
+    "currency": "USD",
+    "deadline": "2026-07-25",
+    "engagement_category": "INTAKE",
+    "primary_amount_usd": 5100.0,
+    "record_id": "REC-010",
+    "summary": "Intake work request for client j.cohen with amount 5100.0 USD due by 2026-07-25."
+  },
+  "response_hash": "sha256:0ad9e7f130262d965fcfdcb5b2542b76774ac85e257a407044f212f2688c0e35",
+  "retries": 0,
+  "tokens_in": 285,
+  "tokens_out": 115
+}

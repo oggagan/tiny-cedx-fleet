@@ -1,0 +1,22 @@
+{
+  "agent": "judge",
+  "cost_usd": 0.00013034,
+  "latency_ms": 1374.47,
+  "model": "deepseek-chat",
+  "prompt_version": "judge/v1",
+  "record_id": "REC-015",
+  "request": {
+    "system": "You are an impartial QA judge for a multi-agent work-order pipeline. Given a source record and what the fleet did with it, rate each agent from 0.0 to 1.0 on whether it did its job correctly: worker (drafted faithfully or abstained appropriately), verifier (correct verdict), orchestrator (correct routing/exception). Reply ONLY strict JSON: {\"worker\":number,\"verifier\":number,\"orchestrator\":number,\"rationale\":string}.",
+    "user": "{\"record_id\": \"REC-015\", \"status\": \"exception\", \"reason_code\": \"LOW_CONFIDENCE\", \"agent_trace\": [{\"agent\": \"worker\", \"status\": \"abstained\", \"verdict\": null, \"model\": \"deepseek-reasoner\"}, {\"agent\": \"verifier\", \"status\": \"rejected\", \"verdict\": \"needs_human\", \"model\": null}], \"delivered_fields\": null}"
+  },
+  "response": {
+    "orchestrator": 1.0,
+    "rationale": "Worker correctly abstained due to low confidence, verifier correctly rejected and flagged for human, orchestrator correctly routed to exception.",
+    "verifier": 1.0,
+    "worker": 1.0
+  },
+  "response_hash": "sha256:331c41083a2fdef23e864e7379134c1987adf0610e2bedaede01bb667fb2e8cb",
+  "retries": 0,
+  "tokens_in": 222,
+  "tokens_out": 64
+}

@@ -1,0 +1,37 @@
+{
+  "agent": "worker",
+  "cost_usd": 0.00018419,
+  "delivered_fields": {
+    "client_owner": "a.shah",
+    "currency": "USD",
+    "deadline": "2026-07-15",
+    "engagement_category": "ONBOARDING",
+    "primary_amount_usd": 4800.0,
+    "record_id": "REC-001",
+    "summary": "Standard new-client setup for onboarding engagement."
+  },
+  "delivered_fields_hash": "sha256:1d2250d513a263323ce53f13ab0fae7a2b56d5945bf4eedfa9831cbc0771840b",
+  "latency_ms": 1898.87,
+  "model": "deepseek-chat",
+  "prompt_version": "worker/v1",
+  "record_id": "REC-001",
+  "request": {
+    "system": "You are the CEDX Assembly agent for a financial-services work-order pipeline. You convert one validated work-request into a branded work-order as STRICT JSON. Ground every factual field EXACTLY in the provided source record - copy record_id, client_owner (the owner), primary_amount_usd (the amount), and deadline verbatim; never invent or alter a value. engagement_category is the category in UPPER_SNAKE. currency is always \"USD\". summary is ONE professional sentence describing the work. If the record is ambiguous, self-contradictory, or missing the facts you need to be correct, DO NOT guess: set abstain=true and confidence below 0.5. Reply with ONLY this JSON object and no prose:\n{\"record_id\":str,\"client_owner\":str,\"engagement_category\":str,\"primary_amount_usd\":number,\"deadline\":str,\"currency\":\"USD\",\"summary\":str,\"confidence\":number,\"abstain\":boolean}",
+    "user": "Source work-request record:\n{\"record_id\": \"REC-001\", \"owner\": \"a.shah\", \"amount\": 4800.0, \"deadline\": \"2026-07-15\", \"category\": \"ONBOARDING\", \"notes\": \"Standard new-client setup.\"}"
+  },
+  "response": {
+    "abstain": false,
+    "client_owner": "a.shah",
+    "confidence": 1.0,
+    "currency": "USD",
+    "deadline": "2026-07-15",
+    "engagement_category": "ONBOARDING",
+    "primary_amount_usd": 4800.0,
+    "record_id": "REC-001",
+    "summary": "Standard new-client setup for onboarding engagement."
+  },
+  "response_hash": "sha256:3bff13e79f2d79e90c0f223e52e521f6e6f44f7dcbdb44b11f566ae6b18fbf8b",
+  "retries": 0,
+  "tokens_in": 287,
+  "tokens_out": 97
+}

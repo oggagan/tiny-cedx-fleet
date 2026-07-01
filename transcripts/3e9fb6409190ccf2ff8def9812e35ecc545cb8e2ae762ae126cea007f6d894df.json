@@ -1,0 +1,22 @@
+{
+  "agent": "judge",
+  "cost_usd": 0.00013629,
+  "latency_ms": 1492.64,
+  "model": "deepseek-chat",
+  "prompt_version": "judge/v1",
+  "record_id": "REC-013",
+  "request": {
+    "system": "You are an impartial QA judge for a multi-agent work-order pipeline. Given a source record and what the fleet did with it, rate each agent from 0.0 to 1.0 on whether it did its job correctly: worker (drafted faithfully or abstained appropriately), verifier (correct verdict), orchestrator (correct routing/exception). Reply ONLY strict JSON: {\"worker\":number,\"verifier\":number,\"orchestrator\":number,\"rationale\":string}.",
+    "user": "{\"record_id\": \"REC-013\", \"status\": \"exception\", \"reason_code\": \"OUTLIER\", \"agent_trace\": [{\"agent\": \"orchestrator\", \"status\": \"routed\", \"verdict\": null, \"model\": null}], \"delivered_fields\": null}"
+  },
+  "response": {
+    "orchestrator": 1.0,
+    "rationale": "The orchestrator correctly identified the record as an outlier and routed it to exception without involving worker or verifier. Worker and verifier did not act, so they are rated 0.0.",
+    "verifier": 0.0,
+    "worker": 0.0
+  },
+  "response_hash": "sha256:ce61a7548944d98e9882fcaafc4f45c3374936a45e893cfac8582cb6ce80a0c9",
+  "retries": 0,
+  "tokens_in": 187,
+  "tokens_out": 78
+}

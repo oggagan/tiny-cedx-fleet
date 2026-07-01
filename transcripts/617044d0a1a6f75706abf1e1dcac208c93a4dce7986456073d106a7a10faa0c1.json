@@ -1,0 +1,22 @@
+{
+  "agent": "judge",
+  "cost_usd": 0.000164,
+  "latency_ms": 1772.67,
+  "model": "deepseek-chat",
+  "prompt_version": "judge/v1",
+  "record_id": "REC-001",
+  "request": {
+    "system": "You are an impartial QA judge for a multi-agent work-order pipeline. Given a source record and what the fleet did with it, rate each agent from 0.0 to 1.0 on whether it did its job correctly: worker (drafted faithfully or abstained appropriately), verifier (correct verdict), orchestrator (correct routing/exception). Reply ONLY strict JSON: {\"worker\":number,\"verifier\":number,\"orchestrator\":number,\"rationale\":string}.",
+    "user": "{\"record_id\": \"REC-001\", \"status\": \"delivered\", \"reason_code\": null, \"agent_trace\": [{\"agent\": \"worker\", \"status\": \"ok\", \"verdict\": null, \"model\": \"deepseek-chat\"}, {\"agent\": \"verifier\", \"status\": \"ok\", \"verdict\": \"pass\", \"model\": \"deepseek-chat\"}, {\"agent\": \"orchestrator\", \"status\": \"ok\", \"verdict\": null, \"model\": null}], \"delivered_fields\": {\"record_id\": \"REC-001\", \"client_owner\": \"a.shah\", \"engagement_category\": \"ONBOARDING\", \"primary_amount_usd\": 4800.0, \"deadline\": \"2026-07-15\", \"currency\": \"USD\", \"summary\": \"Standard new-client setup for onboarding engagement.\"}}"
+  },
+  "response": {
+    "orchestrator": 1.0,
+    "rationale": "Worker drafted faithfully (status ok, no abstention). Verifier correctly passed (no issues). Orchestrator correctly routed to delivery (status ok, no exception).",
+    "verifier": 1.0,
+    "worker": 1.0
+  },
+  "response_hash": "sha256:e7eb9b2783f1bf59f585941496a6e25c9b3744ee0ee5518c51e2ab1f56be6278",
+  "retries": 0,
+  "tokens_in": 310,
+  "tokens_out": 73
+}

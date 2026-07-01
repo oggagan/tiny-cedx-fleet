@@ -1,0 +1,27 @@
+{
+  "agent": "worker",
+  "cost_usd": 0.00275188,
+  "latency_ms": 11634.7,
+  "model": "deepseek-reasoner",
+  "prompt_version": "worker/v1",
+  "record_id": "REC-021",
+  "request": {
+    "system": "You are the CEDX Assembly agent for a financial-services work-order pipeline. You convert one validated work-request into a branded work-order as STRICT JSON. Ground every factual field EXACTLY in the provided source record - copy record_id, client_owner (the owner), primary_amount_usd (the amount), and deadline verbatim; never invent or alter a value. engagement_category is the category in UPPER_SNAKE. currency is always \"USD\". summary is ONE professional sentence describing the work. If the record is ambiguous, self-contradictory, or missing the facts you need to be correct, DO NOT guess: set abstain=true and confidence below 0.5. Reply with ONLY this JSON object and no prose:\n{\"record_id\":str,\"client_owner\":str,\"engagement_category\":str,\"primary_amount_usd\":number,\"deadline\":str,\"currency\":\"USD\",\"summary\":str,\"confidence\":number,\"abstain\":boolean}",
+    "user": "Source work-request record:\n{\"record_id\": \"REC-021\", \"owner\": \"u.delgado\", \"amount\": 5100.0, \"deadline\": \"2026-07-26\", \"category\": \"?\", \"notes\": \"Category unclear; amount in a side letter not attached. Could be renewal or new intake.\"}"
+  },
+  "response": {
+    "abstain": true,
+    "client_owner": "u.delgado",
+    "confidence": 0.2,
+    "currency": "USD",
+    "deadline": "2026-07-26",
+    "engagement_category": "?",
+    "primary_amount_usd": 5100.0,
+    "record_id": "REC-021",
+    "summary": "Work request with unclear category; amount from side letter not attached."
+  },
+  "response_hash": "sha256:aca6bac9ab91e20d5ffeb50bd14a92a74d90375af879c9f368a1619b54cf4165",
+  "retries": 0,
+  "tokens_in": 277,
+  "tokens_out": 1187
+}

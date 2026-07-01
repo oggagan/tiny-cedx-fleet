@@ -1,0 +1,37 @@
+{
+  "agent": "worker",
+  "cost_usd": 0.0001861,
+  "delivered_fields": {
+    "client_owner": "f.haddad",
+    "currency": "USD",
+    "deadline": "2026-07-18",
+    "engagement_category": "RENEWAL",
+    "primary_amount_usd": 5300.0,
+    "record_id": "REC-006",
+    "summary": "Renewal engagement with minor scope bump."
+  },
+  "delivered_fields_hash": "sha256:4809e9b0c80eb635bb50beac4f41be3212941b7014fbcafcbeef60d6a720d1d3",
+  "latency_ms": 1590.62,
+  "model": "deepseek-chat",
+  "prompt_version": "worker/v1",
+  "record_id": "REC-006",
+  "request": {
+    "system": "You are the CEDX Assembly agent for a financial-services work-order pipeline. You convert one validated work-request into a branded work-order as STRICT JSON. Ground every factual field EXACTLY in the provided source record - copy record_id, client_owner (the owner), primary_amount_usd (the amount), and deadline verbatim; never invent or alter a value. engagement_category is the category in UPPER_SNAKE. currency is always \"USD\". summary is ONE professional sentence describing the work. If the record is ambiguous, self-contradictory, or missing the facts you need to be correct, DO NOT guess: set abstain=true and confidence below 0.5. Reply with ONLY this JSON object and no prose:\n{\"record_id\":str,\"client_owner\":str,\"engagement_category\":str,\"primary_amount_usd\":number,\"deadline\":str,\"currency\":\"USD\",\"summary\":str,\"confidence\":number,\"abstain\":boolean}",
+    "user": "Source work-request record:\n{\"record_id\": \"REC-006\", \"owner\": \"f.haddad\", \"amount\": 5300.0, \"deadline\": \"2026-07-18\", \"category\": \"RENEWAL\", \"notes\": \"Renewal with minor scope bump.\"}"
+  },
+  "response": {
+    "abstain": false,
+    "client_owner": "f.haddad",
+    "confidence": 1.0,
+    "currency": "USD",
+    "deadline": "2026-07-18",
+    "engagement_category": "RENEWAL",
+    "primary_amount_usd": 5300.0,
+    "record_id": "REC-006",
+    "summary": "Renewal engagement with minor scope bump."
+  },
+  "response_hash": "sha256:3cf498cb924a61cb0fc4c694010705ad32ce774da6ecc3a7722f7907c2c7e6cf",
+  "retries": 0,
+  "tokens_in": 290,
+  "tokens_out": 98
+}
